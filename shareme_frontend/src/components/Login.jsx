@@ -2,7 +2,7 @@ import React from "react";
 import shareVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
 import { GoogleLogin } from "@react-oauth/google";
-import { createOrGetUser } from "../uitls";
+import { createOrGetUser } from "../utils";
 import { client } from "../client";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,8 @@ const Login = () => {
 
   const responseGoogle = async (response) => {
     const userdata = await createOrGetUser(response);
+
+    localStorage.setItem("user", JSON.stringify(userdata));
 
     const { name, picture, email, sub } = userdata;
 
