@@ -24,11 +24,14 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           <img
             src={user.image}
             alt="user-image"
-            className="w-14 h-12 rounded-full object-contain"
+            className="w-14 h-12 rounded-full object-cover"
           />
         </Link>
 
-        <Link>
+        <Link
+          to="create-pin"
+          className="bg-slate-200 w-14 h-14 md:w-14 md:h-12 rounded-lg flex items-center justify-center font-bold text-slate-600 hover:bg-slate-300 hover:text-slate-800"
+        >
           <IoMdAdd />
         </Link>
       </div>
