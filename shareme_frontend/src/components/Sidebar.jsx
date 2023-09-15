@@ -3,15 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
-
-const dummycategories = [
-  { name: "Animals" },
-  { name: "Photography" },
-  { name: "Anime" },
-  { name: "Nature" },
-  { name: "Cars" },
-  { name: "Science" },
-];
+import { categories } from "../utils/data";
 
 const isActiveStyle =
   "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black hover:text-black transition-all duration-200 ease-in-out capitalize bg-[#f8f9fa]";
@@ -48,20 +40,23 @@ const Sidebar = ({ user, closeToggle }) => {
           <h3 className="mt-2 px-5 text-base 2xl:text-xl">
             Discover Categories
           </h3>
-          {dummycategories
-            .slice(0, dummycategories.length - 1)
-            .map((category) => (
-              <NavLink
-                to={`category/${category.name}`}
-                className={({ isActive }) =>
-                  isActive ? isActiveStyle : isNotActiveStyle
-                }
-                key={category.name}
-                onClick={handleCloseSidebar}
-              >
-                <IoIosArrowForward /> {category.name}
-              </NavLink>
-            ))}
+          {categories.slice(0, categories.length - 1).map((category) => (
+            <NavLink
+              to={`category/${category.name}`}
+              className={({ isActive }) =>
+                isActive ? isActiveStyle : isNotActiveStyle
+              }
+              key={category.name}
+              onClick={handleCloseSidebar}
+            >
+              <img
+                src={category?.image}
+                referrerPolicy="no-referrer"
+                className="w-6 h-6 rounded-full"
+              />{" "}
+              {category.name}
+            </NavLink>
+          ))}
         </div>
       </div>
       {user && (

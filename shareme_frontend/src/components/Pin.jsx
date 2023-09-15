@@ -33,6 +33,7 @@ const Pin = ({ pin }) => {
   alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
   const savePin = (id) => {
+    console.log(user, "user inside savepin query");
     if (alreadySaved?.length === 0) {
       setSavingPost(true);
 
