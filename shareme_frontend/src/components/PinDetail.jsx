@@ -8,7 +8,7 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data";
 
 const PinDetail = ({ user }) => {
-  const [Pins, setPins] = useState(null);
+  const [pins, setPins] = useState(null);
   const [pinDetail, setPinDetail] = useState(false);
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(null);
@@ -161,6 +161,16 @@ const PinDetail = ({ user }) => {
             </div>
           </div>
         </div>
+      )}
+      {pins?.length > 0 ? (
+        <>
+          <h2 className="text-center font-bold text-2x mt-8 mb-6">
+            More like this
+          </h2>
+          <MasonryLayout pins={pins} />
+        </>
+      ) : (
+        <Spinner message="Loading more pins..." />
       )}
     </>
   );

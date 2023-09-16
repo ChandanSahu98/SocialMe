@@ -17,6 +17,7 @@ const Home = () => {
   const userInfo = fetchUser();
 
   useEffect(() => {
+    console.log("inside home");
     const query = userQuery(userInfo?.sub);
 
     client.fetch(query).then((data) => {
