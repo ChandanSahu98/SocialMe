@@ -1,5 +1,4 @@
 export const userQuery = (userId) => {
-  console.log(userId, "queru");
   const query = `*[_type == "user" && _id == '${userId}']`;
   return query;
 };

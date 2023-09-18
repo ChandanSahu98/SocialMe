@@ -19,13 +19,15 @@ const Feed = () => {
     } else {
       client.fetch(feedQuery).then((data) => {
         setPins(data);
-        setLoading(false);
+        setLoading(true);
       });
     }
   }, [categoryId]);
 
-  if (loading)
+  if (!loading)
     return <Spinner message="We are adding new ideas to your feed!" />;
+
+  if (!pins?.length) return <h2>No Pins Available...</h2>;
 
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };

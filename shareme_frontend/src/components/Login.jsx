@@ -46,7 +46,11 @@ const Login = () => {
           <img src={logo} width="130px" alt="logo" />
         </div>
         <div className="shadow-2xl">
-          <GoogleLogin onSuccess={responseGoogle} onError={responseGoogle} />
+          <GoogleLogin
+            onSuccess={responseGoogle}
+            onError={responseGoogle}
+            state_cookie_domain="single_host_origin"
+          />
         </div>
       </div>
     </div>
